@@ -33,3 +33,19 @@ from random import randint
 1 = [randint(1,9) for _ in range(100)]
 
 
+### oppg 8
+
+sirkel = {"s1":4,
+          "s2":7
+          "s3:5"
+          ""}
+a1 = 3.14 * sirkel[s1]**2
+a2 = 3.14 * sirkel[s2]**2
+a3 = 3.14 * sirkel[s3]**2
+
+if a1 > a2 and a1 > a3:
+    print("{a1} er størst")
+else a2 > a3:
+    print("{a2} er størst")
+else a3 > a2:
+    print("{a3} er størst")
