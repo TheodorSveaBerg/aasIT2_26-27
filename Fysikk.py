@@ -1,46 +1,44 @@
-
-""""
-v = 5.0
-s = 0.0
-t = 0.0
-
-dt = 0.1
-t_slutt = 3.0
-
-while t < t_slutt:
-    s = s + v*dt 
-    t = t + dt
-
-
-print("t =", t, " s =", s, " v =", v)
-"""
-
 import matplotlib.pyplot as plt
 
-v = 5.0
-s = 0.0
-t = 0.0
-a = 2.0
 
-dt = 0.01
-t_slutt = 3.0
+
+m = 79
+g = 9.81
+k = 0.32
+
+
+G = m*g
+
+def a(v):
+    L = k*v**2
+    sum_F = G - L
+    akselerasjonen = sum_F/m
+    return akselerasjonen
+
+s = 0
+v = 0
+t = 0
+
+t_slutt = 40
+dt = 0.1
 t_verdier = [t]
 s_verdier = [s]
+v_verdier = [v]
+
 
 while t < t_slutt:
-    v = v + a*dt
-    s = s + v*dt 
+    v = v + a(v)*dt
+    s = s + v*dt
     t = t + dt
-
-
     t_verdier.append(t)
     s_verdier.append(s)
+    v_verdier.append(v)
 
-print(t_verdier)
-print(s_verdier)
-
-plt.plot(t_verdier, s_verdier)
-plt.title("Strekning som funksjon av tid")
-plt.xlabel("t [s]")
-plt.ylabel("s [m]")
+plt.plot(t_verdier, v_verdier)
+plt.title("Hastighet som funksjon av tid")
+plt.xlabel("t[s]")
+plt.ylabel("v[m/s]")
+plt.grid()
 plt.show()
+
+print(t, s, v)
